@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Alignment, Button, Navbar } from "@blueprintjs/core";
 
 class Header extends React.Component {
