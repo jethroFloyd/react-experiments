@@ -8,7 +8,7 @@ class Header extends React.Component {
       case null:
         return (
           <Button
-            intent="primary"
+            intent="warning"
             icon="log-in"
             text="Sign In With Google"
             loading="true"
@@ -17,14 +17,21 @@ class Header extends React.Component {
       case false:
         return (
           <AnchorButton
-            intent="primary"
+            intent="success"
             icon="log-in"
             text="Sign In With Google"
             href="/auth/google"
           />
         );
       default:
-        return <p>Logged In!</p>;
+        return (
+          <AnchorButton
+            intent="danger"
+            icon="log-out"
+            text="Sign Out"
+            href="/api/logout"
+          />
+        );
     }
   }
 
