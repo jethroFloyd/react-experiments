@@ -1,15 +1,27 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Alignment, Button, Navbar, Spinner } from "@blueprintjs/core";
+import { Alignment, Button, Navbar, AnchorButton } from "@blueprintjs/core";
 
 class Header extends React.Component {
   renderContent() {
     switch (this.props.auth) {
       case null:
-        return <Spinner intent="primary" size="20" value={null} />;
+        return (
+          <Button
+            intent="primary"
+            icon="log-in"
+            text="Sign In With Google"
+            loading="true"
+          />
+        );
       case false:
         return (
-          <Button intent="primary" icon="log-in" text="Sign In With Google" />
+          <AnchorButton
+            intent="primary"
+            icon="log-in"
+            text="Sign In With Google"
+            href="/auth/google"
+          />
         );
       default:
         return <p>Logged In!</p>;
