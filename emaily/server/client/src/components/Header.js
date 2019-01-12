@@ -1,6 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Alignment, Button, Navbar, AnchorButton } from "@blueprintjs/core";
+import {
+  Alignment,
+  Button,
+  Navbar,
+  AnchorButton,
+  Icon
+} from "@blueprintjs/core";
 
 class Header extends React.Component {
   renderContent() {
@@ -40,7 +46,16 @@ class Header extends React.Component {
     return (
       <Navbar className="bp3-dark">
         <Navbar.Group align={Alignment.LEFT}>
-          <Navbar.Heading>ChironEye</Navbar.Heading>
+          <Navbar.Heading>
+            <Icon icon="pulse" />
+            &nbsp;ChironEye
+          </Navbar.Heading>
+          <AnchorButton
+            icon="home"
+            text="Home"
+            minimal="true"
+            href={this.props.auth ? "/surveys" : "/"}
+          />
         </Navbar.Group>
         <Navbar.Group align={Alignment.RIGHT}>
           {this.renderContent()}
